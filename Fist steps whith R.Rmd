@@ -1,0 +1,385 @@
+---
+title: "Fist steps using r"
+author: "Júlio Gabriel"
+date: "2022-11-16"
+output: html_document
+---
+
+## This program contains my fist codes in R
+
+```{r showing workspcae path}
+
+getwd()
+
+```
+
+```{r Show type of class}
+
+class(iris)
+
+```
+
+```{r Saving a object}
+
+# Cloning of dataset
+iristest = iris
+
+# Saving a object
+save(iristest,
+     file = 'iristest.Rdata'
+     )
+
+# Removing of R
+rm(iristeste)
+
+# Testing the removal
+
+iristest
+
+```
+
+```{r Reloading the iris data}
+
+# Load object the disk
+load(file = 'iristest.Rdata')
+
+# Show data
+
+iristest
+
+```
+
+```{r Basic vector and graphic}
+
+# Creating basic graphic
+x = c(12,
+      34,
+      56,
+      79
+      )
+
+y = c(1,
+     6,
+     9,
+     14
+     )
+
+plot(x,
+     y
+     )
+
+```
+
+## Working with packages
+
+```{r Packages}
+
+# Installing
+install.packages('e1071')
+library(e1071)
+
+```
+
+```{r Unloading packages}
+
+# Unloading
+detach("packages:e1071", unload = TRUE)
+
+# Removing package
+remove.packages('e1071')
+
+```
+
+## Type of data and operators
+
+```{r Checking an object´s type}
+
+delta = 8
+class(delta)
+
+```
+
+```{r Defining a variable as integer}
+
+# Variable as intege
+delta = 8L
+
+class(delta)
+
+
+logical1 = TRUE
+class(logical1)
+
+logical2 = T
+class(logical2)
+
+character1 = 'Text'
+class(character1)
+
+character2 = "Text"
+class(character2\)
+
+```
+
+```{r Operators mathematical}
+
+c = 2
+d = 4
+
+(c +d) * d
+e = (c + d) * d
+e
+```
+
+```{r Logical Test}
+
+a = 1
+b = 2
+a < b
+a == b
+
+```
+
+```{r Calculating the square root}
+a = 25
+sqrt(a)
+```
+
+## Data structure
+
+```{r Vectors}
+
+x = c(1,
+      2,
+      3,
+      4,
+      5,
+      6)
+x
+x[1]
+x[2] = 10
+x[3] = 20
+
+x
+```
+
+```{r Vectores of other types }
+y = c('a',
+      'b',
+      'c',
+      'd')
+y
+
+z = c(1L,
+      2L,
+      3L)
+z
+
+```
+
+```{r Matrices}
+VADeaths
+colnames(VADeaths)
+rownames(VADeaths)
+```
+
+```{r Matrices}
+# Showing only one column
+VADeaths[,1]
+
+# Showing onlu one row
+VADeaths[1,]
+
+# Showing rows 1,2 and 3
+VADeaths[1:3,]
+
+# Showing specific lines
+VADeaths[c(1, 3, 5)]
+```
+
+```{r Data Frames}
+
+longley
+
+# Its operation looks like a matrix
+longley[,1:3]
+longley[1:4,1:3]
+
+# Accessing a column with $
+longley$Unemployed
+
+# Or name
+longley['Unemployed']
+
+```
+
+```{r Lists}
+
+ability.cov
+
+# Accessing elements
+ability.cov$cov
+ability.cov[1]
+
+# Checking if they are different objects
+class(ability.cov$cov)
+class(ability.cov$center)
+
+# Accessing elements in list
+ability.cov$cov[,1:3]
+```
+
+```{r Factores}
+state.region
+```
+
+## Functions
+
+```{r Functions}
+
+# Functions without parameters
+
+# Showing the local of execution of R
+getwd()
+
+# Also give run command withuot parentheses
+sd
+
+# Showing the first rows of dataset
+
+            # Number of rows
+head(x=iris, n=2)
+head(iris, 10)
+
+# Showing the six firt rows of dataset
+head(iris)
+
+# If not, one of the parameters is found, an error will be displayed
+head(n = 22)
+
+# Help for using of functions
+
+help(getwd())
+
+# To consult the help we can select the code snippet and press f1
+```
+
+```{r Main Functions}
+
+# Dataset
+esoph
+
+# showing the first 6 rows of dataset
+head(esoph)
+
+# Showing the latest 6 rows of dataset
+tail(esoph)
+
+# Showing the dimension of dataset
+dim(esoph)
+
+# Showing the fisrt position of dimension
+dim(esoph)[1]
+
+# Showing the length of dataset
+length(islands)
+
+# Names of columns
+colnames(esoph)
+
+# Name of rows
+rownames(esoph)
+
+# Checking a resume of dataset
+summary(esoph)
+
+# Selection of file
+x = file.choose()
+x
+```
+
+## Data Import
+
+```{r Data Import}
+
+install.packages("xlsx")
+library(xlsx)
+
+```
+
+```{r Data Import csv}
+
+# File csv import # Looking for the file # Defining a separator
+
+# header > Indicates that the first row is the header
+read.csv(file.choose(), header = TRUE, sep = ",")
+
+read.csv('Credit.csv', header = TRUE, sep = ',')
+```
+
+```{r Data import Xlsx}
+
+dados = read.xlsx('Credit.xlsx', sheetIndex = 1)
+dados
+
+
+```
+
+## Programming
+
+```{r Programming if}
+
+# if
+a = 10
+b = 20
+if (a < b)
+{
+  comparison_result = 'A < B? -> True'
+  print(comparison_result)
+}else{
+  comparision_result = 'A < B -> False'
+  print(comparision_result)
+}
+
+# Or we can do it this way
+ifelse(a > b, 'A < B? -> True','A < B -> False')
+
+```
+
+```{r Programming for}
+
+for (i in 1:10)
+{
+  print(i)
+}
+
+```
+
+```{r Programming while}
+a = 1
+while (a <= 10)
+{
+  print(a)
+  a = a + 1
+}
+
+```
+
+```{r Programming functions}
+
+even_or_odd <- function(x)
+  
+{
+  
+  return(ifelse(x%%2==0, 
+                'This number is even', 
+                'This number is odd'
+                )
+         )
+  
+}
+
+number_of_comparison = as.integer(readline(prompt = 'Insert a number to know if he is enven or odd: '))
+
+even_or_odd(number_of_comparison)
+```
