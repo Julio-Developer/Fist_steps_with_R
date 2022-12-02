@@ -1,0 +1,67 @@
+# Practical Activity
+
+## Questions
+
+### 1- Check age and inform the eldest
+
+-   This program must receive the age of a boy and a girl and return the oldest
+
+
+### 2- Check whats the class of object BOD
+
+### 3- Create a vector to stores numbers from 1 to 10 posteriorly print this numbers in screen
+
+### 4- women is a dataframe existing in R. Print the 10 last rows
+
+
+```{r 1- Checking age eldest betweem boy and girl }
+
+
+# Create a function to calculate the age of oldest
+
+age_oldest <- function(x,y)
+{
+  return(ifelse(x > y,
+          'The girl is older',
+          'The boy is older'
+         )
+    )
+}
+
+# Receiving the data
+cat('\014')
+age_girls =as.integer(readline(prompt = 'Girl, how old are you? '))
+cat('\014')
+age_boy = as.integer(readline(prompt = 'Boy, how old are you? '))
+cat('\014')
+                     
+# Calling the function for calculate the age of oldest
+age_oldest(age_girls, age_boy)
+
+```
+```{r 2- Vector to stores numbers and print in screen}
+
+numbers_of_vector = c(1,2,3,4,5,6,7,8,9,10)
+
+for (i in numbers_of_vector)
+{
+  print(i)
+}
+
+```
+```{r 3- Cheking the class of object BOD}
+
+class(BOD)
+
+```
+```{r 4- Showing in scree the 10 first rows of dataframe women}
+
+df = women
+
+tail(df)
+head(df)
+```
+```{r}
+getwd()
+```
+
