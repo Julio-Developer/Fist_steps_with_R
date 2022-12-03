@@ -187,7 +187,7 @@ rownames(VADeaths)
 # Showing only one column
 VADeaths[,1]
 
-# Showing onlu one row
+# Showing only one row
 VADeaths[1,]
 
 # Showing rows 1,2 and 3
